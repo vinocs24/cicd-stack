@@ -1,0 +1,15 @@
+---
+name: 'Deploy Stack'
+description: ''
+author: '@rosswickman'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        wget https://raw.githubusercontent.com/effectualinc-sre/cicd-stack/master/src/Start-MCMStackOperations.ps1
+        wget https://raw.githubusercontent.com/effectualinc-sre/cicd-stack/master/src/Deploy-MCMStack.ps1
+        wget https://raw.githubusercontent.com/effectualinc-sre/cicd-stack/master/src/Remove-MCMStack.ps1
+        wget https://raw.githubusercontent.com/effectualinc-sre/cicd-stack/master/src/Get-MCMCredential.ps1
+        chmod +rx *.ps1
+        ./Start-MCMStackOperations.ps1
+      shell: pwsh
